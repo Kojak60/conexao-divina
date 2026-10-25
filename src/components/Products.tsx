@@ -1,6 +1,23 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ShoppingCart, Eye, Star, X, Play, externalLink } from 'lucide-react'
+import { ShoppingCart, Eye, Star, X, Play, ExternalLink } from 'lucide-react'
+
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  category: string;
+  image: string;
+  videoUrl?: string; // Optional
+  description: string;
+  rating: number;
+  affiliateLinks: {
+    amazon?: string;
+    shopee?: string;
+    mercadolivre?: string;
+  };
+}
+
 
 const products = [
   {
@@ -36,7 +53,7 @@ const products = [
 
 function Products() {
   const [filter, setFilter] = useState('Todos')
-  const [selectedProduct, setSelectedProduct] = useState(null)
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
 
   const filteredProducts = filter === 'Todos' 
     ? products 
