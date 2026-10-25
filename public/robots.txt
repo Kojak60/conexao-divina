@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://conexaodivina.infinityfreeapp.com/sitemap.xml
